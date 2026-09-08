@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian — AI Data Annotation Specialist</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#12161D;
+    --ink-soft:#1B212B;
+    --paper:#EEEDE6;
+    --muted:#9AA2B1;
+    --box:#4FD1C5;
+    --tag:#E8A33D;
+    --line:#2A303B;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  a{color:var(--box); text-decoration:none;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(18,22,29,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 24px;
+  }
+  .brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:17px;}
+  .navlinks{display:flex; gap:22px; font-size:13.5px; color:var(--muted);}
+  .navlinks a:hover{color:var(--paper);}
+
+  /* HERO */
+  .hero{padding:76px 0 60px; position:relative;}
+  .hero .eyebrow-free{font-size:13px; color:var(--box); font-weight:600; margin-bottom:14px;}
+  .hero h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:42px; font-weight:700; line-height:1.15;
+    max-width:640px;
+  }
+  .hero p.lead{
+    margin-top:16px; max-width:520px; color:var(--muted); font-size:15.5px;
+  }
+  .hero .cta-row{margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:11px 20px; border-radius:5px;
+    font-size:14px; font-weight:600;
+  }
+  .btn.primary{background:var(--box); color:var(--ink);}
+  .btn.ghost{border:1px solid var(--line); color:var(--paper);}
+  .btn.ghost:hover{border-color:var(--box);}
+
+  .hero-visual{
+    margin-top:44px; border:1px solid var(--line); border-radius:8px;
+    padding:20px; background:var(--ink-soft); overflow:hidden;
+  }
+  .hero-visual svg{width:100%; height:auto; display:block;}
+  .hero-visual figcaption{
+    margin-top:10px; font-size:11.5px; color:var(--muted); text-align:center;
+  }
+
+  .hero-top{display:flex; align-items:center; gap:18px; margin-bottom:22px;}
+  .hero-photo{
+    width:72px; height:72px; border-radius:50%;
+    object-fit:cover; border:2px solid var(--box);
+    flex-shrink:0;
+  }
+  .hero-photo-name{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px;}
+  .hero-photo-role{font-size:12.5px; color:var(--muted); margin-top:2px;}
+
+  .project-shot{
+    margin-top:12px; border:1px solid var(--line); border-radius:6px;
+    overflow:hidden;
+  }
+  .project-shot img{width:100%; display:block;}
+  .project-shots{display:flex; gap:10px; flex-wrap:wrap;}
+  .project-shots .project-shot{flex:1 1 200px;}
+
+  section{padding:56px 0; border-top:1px solid var(--line);}
+  h2{
+    font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600;
+    margin-bottom:28px;
+  }
+  h2 .num{color:var(--box); font-weight:600; margin-right:8px;}
+
+  /* SKILLS */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  }
+  .skill-card{
+    background:var(--ink-soft); border:1px solid var(--line); border-radius:8px;
+    padding:18px 16px;
+  }
+  .skill-card h3{font-size:14.5px; font-weight:600; margin-bottom:8px;}
+  .skill-card p{font-size:13px; color:var(--muted);}
+  .skill-tools{
+    margin-top:10px; font-size:11px; color:var(--tag); font-family:'Space Grotesk',monospace;
+  }
+
+  /* PROJECTS */
+  .project{
+    display:grid; grid-template-columns:120px 1fr; gap:20px;
+    padding:22px 0; border-bottom:1px solid var(--line);
+  }
+  .project:last-child{border-bottom:none;}
+  .project .plat{font-size:12px; color:var(--box); font-weight:600; padding-top:2px;}
+  .project h3{font-size:16px; font-weight:600; margin-bottom:6px;}
+  .project p{font-size:13.5px; color:var(--muted);}
+  .project .meta{
+    margin-top:8px; font-size:11px; color:#7C879A;
+    font-family:'Space Grotesk',monospace;
+  }
+
+  /* CONTACT + BOOKING */
+  .contact-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:32px;
+  }
+  .contact-list div{
+    display:flex; justify-content:space-between; padding:12px 0;
+    border-bottom:1px solid var(--line); font-size:14px;
+  }
+  .contact-list span.k{color:var(--muted);}
+
+  .booking-card{
+    background:var(--ink-soft); border:1px solid var(--line); border-radius:8px;
+    padding:24px;
+  }
+  .booking-card h3{font-size:15px; margin-bottom:8px;}
+  .booking-card p{font-size:13px; color:var(--muted); margin-bottom:18px;}
+
+  footer{
+    padding:30px 0 50px; text-align:center; color:#5C6577; font-size:12px;
+  }
+
+  @media (max-width:640px){
+    .skills-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .project{grid-template-columns:1fr;}
+    .hero h1{font-size:32px;}
+    .navlinks{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Brian</div>
+    <div class="navlinks">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="#booking">Book a call</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <img class="hero-photo" src="assets/photo.jpg" alt="Portrait of Brian">
+      <div>
+        <div class="hero-photo-name">Brian</div>
+        <div class="hero-photo-role">AI Data Annotation Specialist</div>
+      </div>
+    </div>
+    <div class="eyebrow-free">Mombasa, Kenya · Remote annotation &amp; QA</div>
+    <h1>I turn raw footage and point clouds into training-ready data.</h1>
+    <p class="lead">Four years labeling images, video, audio, and LiDAR scenes across CVAT, Labelbox, FastLabel, Remotasks, and Solvano AI — with the QA discipline to keep it accurate at scale.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#booking">Book a call</a>
+      <a class="btn ghost" href="#projects">See projects</a>
+    </div>
+
+    <figure class="hero-visual">
+      <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="860" height="260" fill="#0F1319" rx="4"/>
+        <!-- scene shapes standing in for annotated objects -->
+        <rect x="90" y="70" width="90" height="60" fill="#232B36"/>
+        <circle cx="420" cy="150" r="42" fill="#232B36"/>
+        <polygon points="620,60 700,60 730,140 590,140" fill="#232B36"/>
+        <rect x="260" y="150" width="140" height="46" fill="#1A2028"/>
+
+        <!-- bounding boxes -->
+        <rect x="78" y="58" width="114" height="86" fill="none" stroke="#4FD1C5" stroke-width="1.5"/>
+        <text x="80" y="52" fill="#4FD1C5" font-family="Space Grotesk, monospace" font-size="11">vehicle · 0.94</text>
+
+        <rect x="372" y="102" width="96" height="96" fill="none" stroke="#4FD1C5" stroke-width="1.5"/>
+        <text x="374" y="96" fill="#4FD1C5" font-family="Space Grotesk, monospace" font-size="11">person · 0.88</text>
+
+        <rect x="580" y="48" width="162" height="104" fill="none" stroke="#E8A33D" stroke-width="1.5"/>
+        <text x="582" y="42" fill="#E8A33D" font-family="Space Grotesk, monospace" font-size="11">structure · review</text>
+
+        <rect x="248" y="138" width="164" height="70" fill="none" stroke="#4FD1C5" stroke-width="1.5"/>
+        <text x="250" y="132" fill="#4FD1C5" font-family="Space Grotesk, monospace" font-size="11">road · 0.97</text>
+
+        <!-- LiDAR-style point scatter along bottom -->
+        <g fill="#4FD1C5" opacity="0.55">
+          <circle cx="40" cy="230" r="1.6"/><circle cx="66" cy="222" r="1.6"/><circle cx="94" cy="234" r="1.6"/>
+          <circle cx="130" cy="220" r="1.6"/><circle cx="160" cy="232" r="1.6"/><circle cx="200" cy="224" r="1.6"/>
+          <circle cx="240" cy="230" r="1.6"/><circle cx="280" cy="218" r="1.6"/><circle cx="320" cy="228" r="1.6"/>
+          <circle cx="360" cy="222" r="1.6"/><circle cx="400" cy="232" r="1.6"/><circle cx="440" cy="220" r="1.6"/>
+          <circle cx="480" cy="228" r="1.6"/><circle cx="520" cy="222" r="1.6"/><circle cx="560" cy="230" r="1.6"/>
+          <circle cx="600" cy="220" r="1.6"/><circle cx="640" cy="228" r="1.6"/><circle cx="680" cy="222" r="1.6"/>
+          <circle cx="720" cy="232" r="1.6"/><circle cx="760" cy="220" r="1.6"/><circle cx="800" cy="228" r="1.6"/>
+        </g>
+      </svg>
+      <figcaption>Illustrative annotation pass — bounding boxes &amp; point cloud, styled after real class-schema work</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2><span class="num">01</span>Data Annotation Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Image &amp; Object Detection</h3>
+        <p>Bounding boxes, polygons, and multi-class labeling schemas for detection and classification datasets.</p>
+        <div class="skill-tools">CVAT · Labelbox</div>
+      </div>
+      <div class="skill-card">
+        <h3>Semantic &amp; Instance Segmentation</h3>
+        <p>Pixel-level masks distinguishing object instances within complex, cluttered scenes.</p>
+        <div class="skill-tools">Remotasks · Solvano AI</div>
+      </div>
+      <div class="skill-card">
+        <h3>Video Annotation</h3>
+        <p>Frame-by-frame object tracking, action segments, and captioning across continuous footage.</p>
+        <div class="skill-tools">Annotasks</div>
+      </div>
+      <div class="skill-card">
+        <h3>LiDAR / 3D Point Cloud</h3>
+        <p>3D bounding boxes, persistent object IDs, and sensor fusion across sequential frames.</p>
+        <div class="skill-tools">FastLabel</div>
+      </div>
+      <div class="skill-card">
+        <h3>Human Verification &amp; QA</h3>
+        <p>Reviewing AI-generated labels against source footage; enforcing IoU and defect-rate thresholds.</p>
+        <div class="skill-tools">Atlas Capture</div>
+      </div>
+      <div class="skill-card">
+        <h3>Audio Annotation</h3>
+        <p>Transcription, segmentation, and tagging for speech and audio-event datasets.</p>
+        <div class="skill-tools">Multi-platform</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2><span class="num">02</span>Projects</h2>
+
+    <div class="project">
+      <div class="plat">FastLabel</div>
+      <div>
+        <h3>3D Point Cloud Annotation — Japan Highway &amp; Urban Scenes</h3>
+        <p>Labeled LiDAR sequences with a 12-class schema, maintaining persistent object IDs across frames under strict QA thresholds.</p>
+        <div class="meta">12 classes · IoU ≥ 0.7 · ≤2% defect rate</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="plat">CVAT</div>
+      <div>
+        <h3>CCTV Traffic Image Annotation</h3>
+        <p>Built an 8-class labeling schema for traffic scenes, covering vehicles, pedestrians, and road infrastructure.</p>
+        <div class="meta">8-class schema</div>
+        <div class="project-shots">
+          <div class="project-shot"><img src="assets/project-cctv-1.jpg" alt="CVAT annotation of traffic scene with vehicle bounding boxes"></div>
+          <div class="project-shot"><img src="assets/project-cctv-2.jpg" alt="CVAT annotation showing pedestrian and traffic cone labels"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="plat">Remotasks / Solvano AI</div>
+      <div>
+        <h3>Semantic &amp; Instance Segmentation</h3>
+        <p>Pixel-accurate masks separating individual object instances across varied scene types.</p>
+        <div class="meta">Segmentation portfolio</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="plat">Atlas Capture</div>
+      <div>
+        <h3>Hand Action Label Verification</h3>
+        <p>Reviewed AI-generated hand action labels against video footage as a Human Verifier.</p>
+        <div class="meta">QA / verification</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="plat">Annotasks</div>
+      <div>
+        <h3>POV Mechanical Action Captioning</h3>
+        <p>Annotated first-person mechanical action clips with captioning and segment labeling.</p>
+        <div class="meta">Captioning · segmentation</div>
+        <div class="project-shot"><img src="assets/project-captioning.jpg" alt="Video captioning tool showing suggested captions for a hand-action clip"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2><span class="num">03</span>Contact &amp; Booking</h2>
+    <div class="contact-grid">
+      <div class="contact-list">
+        <div><span class="k">Email</span><span>brian.annotates@email.com</span></div>
+        <div><span class="k">LinkedIn</span><span>linkedin.com/in/brian-dataannotator</span></div>
+        <div><span class="k">Location</span><span>Mombasa, Kenya (remote)</span></div>
+        <div><span class="k">Availability</span><span>Open to new projects</span></div>
+      </div>
+
+      <div class="booking-card" id="booking">
+        <h3>Book a call</h3>
+        <p>Discuss an annotation project, QA pass, or dataset build — pick a time that works for you.</p>
+        <a class="btn primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Open booking calendar</a>
+        <div style="margin-top:12px;">
+          <a href="mailto:brian.annotates@email.com?subject=Project%20inquiry">or email me directly →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Brian — AI Data Annotation Specialist · Built with care.
+</footer>
+
+</body>
+</html>
